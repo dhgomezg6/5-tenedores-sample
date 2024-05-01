@@ -33,8 +33,7 @@ jobs:
 
       - name: Create firebase config
         run: |
-          echo "module.exports = { apiKey: '${{ secrets.FIREBASE_API_KEY }}' };" > src/firebase.js
-
+          echo "export const apiKey = '${{ secrets.FIREBASE_API_KEY }}';" > src/utils/firebaseApiKey.js
 
       - name: Publish update
         run: eas update --auto
