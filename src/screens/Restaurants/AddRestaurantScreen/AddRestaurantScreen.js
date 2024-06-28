@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { Button } from "react-native-elements"
 import { useFormik } from "formik"
-import { InfoForm } from '../../../components/Restaurants/AddRestaurant'
+import { InfoForm, UploadImagesForm } from '../../../components/Restaurants/AddRestaurant'
 import { styles } from './AddRestaurantScreen.styles'
 import { initialValues, validationSchema } from './AddRestaurantScreen.data'
 
@@ -20,7 +20,7 @@ export function AddRestaurantScreen() {
   return (
     <View>
       <InfoForm formik={formik} />
-
+      <UploadImagesForm formik={formik} />
       <Button 
         title="Crear restaurante" 
         buttonStyle={styles.addRestaurant}
