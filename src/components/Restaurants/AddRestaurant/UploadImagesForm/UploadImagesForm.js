@@ -8,7 +8,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
 import 'react-native-get-random-values'
 import { v4 as uuid } from "uuid"
-import { map } from "lodash"
+import { map, filter } from "lodash"
  
 export function UploadImagesForm(props) {
   const { formik } = props;
@@ -50,6 +50,28 @@ export function UploadImagesForm(props) {
     setIsLoading(false)
   }
 
+  const removeImage = (img) => {
+    Alert.alert(
+      "Eliminarimagen?",
+      "¿Estas seguro de eliminar?",
+      [
+        {
+          text: "Cancelar",
+          style: "cancel"
+        },
+        {
+          text: "Eliminar",
+          onPress: () => {
+            const result = filter(formik.values.images, (image) => image !== img)
+            formik.setFieldValue("images", result);
+            // TODO: Eliminar de firebase
+          }
+        }
+      ],
+      { cancelable: false}
+    )
+  }
+
   return (
     <>
       <ScrollView style={styles.viewImage} horizontal showsHorizontalScrollIndicator={false}>
@@ -66,6 +88,7 @@ export function UploadImagesForm(props) {
             key={image}
             source={{uri:image}}
             containerStyle={styles.imageStyles}
+            onPress={() => removeImage(image)}
           />
         ))}
 

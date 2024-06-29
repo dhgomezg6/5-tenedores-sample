@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApps } from "firebase/app";
+import { getFirestore } from "firebase/firestore"
 import { apiKey } from './firebaseApiKey';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -15,7 +16,6 @@ const firebaseConfig = {
 };
 
 let firebaseApp;
-console.log(apiKey);
 
 if (!getApps().length) {
   firebaseApp = initializeApp(firebaseConfig);
@@ -25,3 +25,4 @@ if (!getApps().length) {
 
 // Initialize Firebase
 export const initFirebase = firebaseApp;
+export const db = getFirestore(initFirebase);
