@@ -15,7 +15,8 @@ const rankingStack = {
 const restaurantStack = {
     tab: "RestaurantsTab",
     restaurant: "ListRestaurant",
-    addRestaurant: "AddRestaurant"
+    addRestaurant: "AddRestaurant",
+    viewRestaurant: "ViewRestaurant"
 }
 const searchStack = {
     tab: "SearchTab",
