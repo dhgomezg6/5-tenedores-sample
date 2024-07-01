@@ -6,9 +6,9 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { LoadingModal } from "../../../components/Shared";
 import { ListRestaurant } from "../../../components/Restaurants";
 import { screen, db } from "../../../utils";
-import { styles } from "./RestaurantsListScreen.styles";
+import { styles } from "./ListRestaurantsScreen.styles";
 
-export function RestaurantsListScreen(props) {
+export function ListRestaurantsScreen(props) {
   const { navigation } = props;
   const [currentUser, setCurrentUser] = useState(null);
   const [restaurants, setRestaurants] = useState(null);
