@@ -48,9 +48,8 @@ export function ListRestaurantsScreen(props) {
   return (
     <View style={styles.content}>
       <Text>Estamos en la screen RestaurantsScreen2</Text>
-      {loadingRestaurants ? 
-        <LoadingModal text="Cargando" /> 
-        : <ListRestaurant restaurants={restaurants} />}
+      <LoadingModal show={loadingRestaurants} text="Cargando" /> 
+      {!loadingRestaurants && <ListRestaurant restaurants={restaurants} />}
 
       {currentUser && (
         <Icon
