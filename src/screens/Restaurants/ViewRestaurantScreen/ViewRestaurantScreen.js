@@ -8,7 +8,8 @@ import {
   where,
   orderBy,
 } from "firebase/firestore";
-//import { Carousel } from "../../../components/Shared"
+import { Carousel, Loading } from "../../../components/Shared"
+import { Header } from "../../../components/RestaurantDetail"
 import { db } from "../../../utils";
 import { styles } from "./ViewRestaurantScreen.styles";
 
@@ -25,14 +26,13 @@ export function ViewRestaurantScreen(props) {
     });
   }, [route.params.id]);
 
-
-  console.log(restaurant)
-  if (!restaurant) return null;
+  if (!restaurant) return <Loading show text="Cargando detalles" />;
 
   return (
     <ScrollView style={styles.content}>
-      <Text>smth</Text>
-      {/* <Carousel arrayImages={restaurant.images} height={250} width={width} /> */}
+      <Carousel arrayImages={restaurant.images} height={250} width={width} />
+
+      <Header restaurant={restaurant} />
     </ScrollView>
   );
 }

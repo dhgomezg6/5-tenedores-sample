@@ -27,9 +27,11 @@ export function ListRestaurantsScreen(props) {
   useEffect(() => {
     if(currentUser){
       const q = query(collection(db, "restaurans"), orderBy("createdAt", "desc"));
+      console.log("IS before focused: ",isFocused)
       setLoadingRestaurants(true);
       onSnapshot(q, (snapshot) => {
         setLoadingRestaurants(false);
+        console.log("IS after focused: ",isFocused)
         setRestaurants(snapshot.docs);
       }, (error) => {
         console.log(error);
