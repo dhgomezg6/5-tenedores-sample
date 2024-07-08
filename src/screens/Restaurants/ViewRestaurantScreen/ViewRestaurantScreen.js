@@ -8,8 +8,8 @@ import {
   where,
   orderBy,
 } from "firebase/firestore";
-import { Carousel, Loading } from "../../../components/Shared"
-import { Header } from "../../../components/RestaurantDetail"
+import { Carousel, Loading, Map } from "../../../components/Shared"
+import { Header, Info } from "../../../components/RestaurantDetail"
 import { db } from "../../../utils";
 import { styles } from "./ViewRestaurantScreen.styles";
 
@@ -33,6 +33,7 @@ export function ViewRestaurantScreen(props) {
       <Carousel arrayImages={restaurant.images} height={250} width={width} />
 
       <Header restaurant={restaurant} />
+      <Info restaurant={restaurant} />
     </ScrollView>
   );
 }
